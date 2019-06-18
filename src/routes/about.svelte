@@ -48,7 +48,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background: rgb(45,10,13);
+		background: #F5B090;
 	}
 
 	.text {
@@ -71,11 +71,11 @@
 
 	.foreground {
 		position: absolute;
-		top: 4900px;
+		top: 5800px;
 		left: 0;
 		width: 100%;
 		height: calc(100% - 712px);
-		background-color: rgb(32,0,1);
+		background-color: #F5B090;
 		color: white;
 		padding: 50vh 0 0 0;
 	}
@@ -83,6 +83,6 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		background-color: rgb(253, 174, 51);
+		background-color: #F5B090;
 	}
 </style>
