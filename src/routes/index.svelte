@@ -1,4 +1,6 @@
-<style>
+<style lang="scss">
+	$gradient: linear-gradient(-90deg, #FF00A1, #F6FF00);
+
 	h1, figure, p {
 		text-align: center;
 		margin: 0 auto;
@@ -13,6 +15,7 @@
 
 	figure {
 		margin: 0 0 1em 0;
+		background-image: $gradient;
 	}
 
 	img {

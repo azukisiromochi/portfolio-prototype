@@ -20,6 +20,7 @@ module.exports = {
 					use: {
 						loader: 'svelte-loader',
 						options: {
+							preprocess: require('svelte-preprocess')({ scss: true }),
 							dev,
 							hydratable: true,
 							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
@@ -53,6 +54,7 @@ module.exports = {
 					use: {
 						loader: 'svelte-loader',
 						options: {
+							preprocess: require('svelte-preprocess')({ scss: true }),
 							css: false,
 							generate: 'ssr',
 							dev
