@@ -1,15 +1,17 @@
 <script>
-	const layers = [0, 1, 2, 3, 4, 5, 6];
+	import Stars from '../components/Stars.svelte';
 
+	const layers = [0, 1, 2, 3, 4, 5, 6];
 	let y;
 </script>
 
 <svelte:window bind:scrollY={y}/>
 
 <div class="portfolio-container">
+	<Stars/>
 	{#each [0, 1, 2, 3, 4, 5, 6] as layer}
 		<img
-			style="transform: translate(0,{-y * layer / (layers.length - 1)}px); top: {700 * layer}px"
+			style="transform: translate(0,{-y * (layer + 1) / (layers.length)}px); top: {700 * (layer + 1)}px"
 			src="./images/layer-{layer}.png"
 			alt="portfolio layer {layer}"
 		>
@@ -83,6 +85,5 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		background-color: #F5B090;
 	}
 </style>
