@@ -73,7 +73,7 @@
 
 	.foreground {
 		position: absolute;
-		top: 5800px;
+		top: 6500px;
 		left: 0;
 		width: 100%;
 		height: calc(100% - 712px);

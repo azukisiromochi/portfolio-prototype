@@ -1,79 +1,31 @@
-<style lang="sass">
+<style lang="scss">
 
-  // n is number of stars required
-  @function multiple-box-shadow ($n)
-    $value: '#{random(2000)}px #{random(2000)}px #FFF'
-    @for $i from 2 through $n
-      $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF'
+  #stars-background {
+    background: url('../images/foreground.png') 5% 5%, url('../images/midground.png') 50% 50%, url('../images/background.png') 90% 110%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    -webkit-transition: left 300s linear;
+    -moz-transition: left 300s linear;
+    -o-transition: left 300s linear;
+    -ms-transition: left 300s linear;
+    transition: left 300s linear;
+  }
 
-    @return unquote($value)
+  #stars {
+    &:target #stars-background {
+      left: -5000px;
+    }
 
-  $shadows-small:  multiple-box-shadow(700)
-  $shadows-medium: multiple-box-shadow(200)
-  $shadows-big:    multiple-box-shadow(100)
-
-  #container
-    height: 2000px
-    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%)
-
-  #stars
-    width: 1px
-    height: 1px
-    background: transparent
-    box-shadow: $shadows-small
-    animation			: animStar 50s linear infinite
-
-    &:after
-      content: " "
-      position: absolute
-      top: 2000px
-      width: 1px
-      height: 1px
-      background: transparent
-      box-shadow: $shadows-small
-
-  #stars2
-    width: 2px
-    height: 2px
-    background: transparent
-    box-shadow: $shadows-medium
-    animation			: animStar 100s linear infinite
-
-    &:after
-      content: " "
-      position: absolute
-      top: 2000px
-      width: 2px
-      height: 2px
-      background: transparent
-      box-shadow: $shadows-medium
-
-  #stars3
-    width: 3px
-    height: 3px
-    background: transparent
-    box-shadow: $shadows-big
-    animation			: animStar 150s linear infinite
-
-    &:after
-      content: " "
-      position: absolute
-      top: 2000px
-      width: 3px
-      height: 3px
-      background: transparent
-      box-shadow: $shadows-big
-
-  @keyframes animStar
-    from
-      transform: translateY(0px)
-    to
-      transform: translateY(-2000px)
+    &:hover #stars-background {
+      left: -9999px;
+    }
+  }
 
 </style>
 
-<div id='container'>
-  <div id='stars'></div>
-  <div id='stars2'></div>
-  <div id='stars3'></div>
+<div id="stars">
+    <div id="stars-background"></div>
 </div>
