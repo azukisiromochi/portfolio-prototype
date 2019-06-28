@@ -35,6 +35,10 @@
 	</div>
 </div>
 
+<div class="cd-transition-layer">
+	<div class="bg-layer"></div>
+</div>
+
 {#if showModal}
 	<Modal on:close="{() => showModal = false}">
 		<h2 slot="header">
@@ -242,5 +246,22 @@
 	@include newKeyframes(neon3) {
 	  @include neonAnimation($neon3color);
 	};
+
+
+	.cd-transition-layer {
+		.bg-layer {
+			/* sprite composed of 25 frames */
+			width: 2500%;
+			background-image: url(../images/glitch.png);
+		}
+
+		&.opening .bg-layer {
+			animation: cd-sequence .8s steps(24) forwards;
+		}
+
+		&.closing .bg-layer {
+			animation: cd-sequence .8s steps(24) forwards reverse;
+		}
+	}
 
 </style>
