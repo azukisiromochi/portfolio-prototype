@@ -1,8 +1,14 @@
 <script>
 	import Stars from '../components/Stars.svelte';
+	import Rainy from '../components/Rainy.svelte';
 	import Modal from '../components/Modal.svelte';
 
 	let showModal = false;
+
+	const random = Math.floor(Math.random() * 2);
+	const neonColor = !!random ? 'neon1' : 'neon3';
+
+	console.log(random);
 
 	const layers = [0, 1, 2, 3, 4, 5, 6];
 	let y;
@@ -11,7 +17,8 @@
 <svelte:window bind:scrollY={y}/>
 
 <div class="portfolio-container">
-	<Stars/>
+	{#if !!random}<Rainy/>{/if}
+	{#if !random}<Stars/>{/if}
 	{#each [0, 1, 2, 3, 4, 5, 6] as layer}
 		<img
 			style="transform: translate(0,{-y * (layer + 1) / (layers.length)}px); top: {700 * (layer + 1)}px"
@@ -24,7 +31,7 @@
   <div class="neon-items">
 		<a
 			on:click="{() => showModal = true}"
-			class="neon neon4"
+			class="neon {neonColor}"
 			style="opacity: {1 - Math.max(0, y / 400)}">modal</a>
 	</div>
 </div>
@@ -33,10 +40,6 @@
 	<div class="foreground">
 		You have scrolled {y} pixels
 	</div>
-</div>
-
-<div class="cd-transition-layer">
-	<div class="bg-layer"></div>
 </div>
 
 {#if showModal}
@@ -108,6 +111,12 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
+	}
+
+	:global(*),
+	:global(*:before),
+	:global(*:after) {
+	  box-sizing: border-box;
 	}
 
 	/***********************
@@ -246,22 +255,5 @@
 	@include newKeyframes(neon3) {
 	  @include neonAnimation($neon3color);
 	};
-
-
-	.cd-transition-layer {
-		.bg-layer {
-			/* sprite composed of 25 frames */
-			width: 2500%;
-			background-image: url(../images/glitch.png);
-		}
-
-		&.opening .bg-layer {
-			animation: cd-sequence .8s steps(24) forwards;
-		}
-
-		&.closing .bg-layer {
-			animation: cd-sequence .8s steps(24) forwards reverse;
-		}
-	}
 
 </style>
