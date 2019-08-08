@@ -9,8 +9,13 @@
 </script>
 
 <style lang="scss">
+$color1: #e1315b;
+$color2: #f47d4a;
+$color3: #ffff42;
+$color4: #00cffa;
+
 div {
-  background: #96fbc4;
+  background: $color1;
   height: 15vh;
   width: 10vw;
   margin-left: -15vw;
@@ -22,25 +27,19 @@ div {
 }
 
 @keyframes fadeIn {
-  25% {
-    background: #f9f586;
-  }
+  15% { background: $color1; }
+	30% { background: $color2; }
+	45% { background: $color3; }
   50% {
-    transform: scaleX(10) skew(-30deg);
+    transform: scaleX(15) skew(-30deg);
     transform-origin: 0% 50%;
-    background: #96fbc4;
   }
-  75% {
-    border-radius: 30% 20% / 45% 15%;
-    background: #fe9a8b;
-  }
-  99% {
-    box-shadow: -20px 10px 10px 10px rgba(0,0,0,.8);
-  }
+  75% { border-radius: 30% 20% / 40% 15%; }
+	80% { background: $color4; }
+  90% { box-shadow: -20px 10px 10px 10px rgba(0, 0, 0, .8); }
   100% {
-    transform: translatex(150vw) scaleX(1) skew(0deg);
+    transform: translatex(120vw) scaleX(2) skew(0deg);
     transform-origin: 0% 50%;
-    background: #fe9a8b;
     margin-left: 0;
   }
 }
