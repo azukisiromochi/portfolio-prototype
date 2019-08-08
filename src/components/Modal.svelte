@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import Syubababa from '../components/Syubababa.svelte';
 
 	const dispatch = createEventDispatcher();
 </script>
@@ -33,7 +34,13 @@
 	}
 </style>
 
-<div class='modal-background' on:click='{() => dispatch("close")}'></div>
+<div class='modal-background' on:click='{() => dispatch("close")}'>
+	<Syubababa duration={"800ms"} delay={"700ms"} />
+	<Syubababa duration={"700ms"} delay={"1000ms"} height={"30vh"} />
+	<Syubababa duration={"600ms"} delay={"1200ms"} height={"20vh"} />
+	<Syubababa delay={"1400ms"} height={"10vh"} />
+	<Syubababa delay={"1500ms"} height={"25vh"} />
+</div>
 
 <div class='modal'>
 	<slot name='header'></slot>
