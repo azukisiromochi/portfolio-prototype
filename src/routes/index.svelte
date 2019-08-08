@@ -1,5 +1,5 @@
 <script>
-
+	import Syubababa from '../components/Syubababa.svelte';
 </script>
 
 <style lang="scss">
@@ -44,6 +44,12 @@
 </svelte:head>
 
 <h1>Great success!</h1>
+
+<Syubababa duration={"800ms"} delay={"700ms"} />
+<Syubababa duration={"700ms"} delay={"1000ms"} height={"30vh"} />
+<Syubababa duration={"600ms"} delay={"1200ms"} height={"20vh"} />
+<Syubababa delay={"1400ms"} height={"10vh"} />
+<Syubababa delay={"1500ms"} height={"25vh"} />
 
 <figure>
 	<img alt='Borat' src='great-success.png'>
