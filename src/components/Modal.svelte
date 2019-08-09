@@ -27,19 +27,31 @@
 		padding: 1em;
 		border-radius: 0.2em;
 		background: white;
+
+		animation-name:fade-in-modal;
+	  animation-duration:2s;
+	  animation-timing-function: ease-out;
+	  animation-delay:1s;
+		animation-fill-mode: forwards;
+		opacity: 0;
 	}
 
 	button {
 		display: block;
 	}
+
+	@keyframes fade-in-modal {
+	  0% { opacity: 0; transform: translate3d(-100%, -50%, 0); }
+	  100% { opacity: 1; transform: translate3d(-50%, -50%, 0); }
+	}
 </style>
 
 <div class='modal-background' on:click='{() => dispatch("close")}'>
-	<Syubababa duration={"800ms"} delay={"700ms"} />
-	<Syubababa duration={"700ms"} delay={"1000ms"} height={"30vh"} />
-	<Syubababa duration={"600ms"} delay={"1200ms"} height={"20vh"} />
-	<Syubababa delay={"1400ms"} height={"10vh"} />
-	<Syubababa delay={"1500ms"} height={"25vh"} />
+	<Syubababa duration={"800ms"} delay={"300ms"} />
+	<Syubababa duration={"700ms"} delay={"600ms"} height={"30vh"} />
+	<Syubababa duration={"600ms"} delay={"800ms"} height={"20vh"} />
+	<Syubababa delay={"1000ms"} height={"10vh"} />
+	<Syubababa delay={"1100ms"} height={"25vh"} />
 </div>
 
 <div class='modal'>
